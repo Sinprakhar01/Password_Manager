@@ -18,10 +18,10 @@ def login():
             db = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                passwd='45968060',
-                database="datm")
+                passwd="root",
+                database="Password_manager")
             cur = db.cursor()
-            cur.execute("SELECT * FROM useraccounts WHERE Email_id=%s and password=%s",
+            cur.execute("SELECT * FROM Accounts WHERE Username=%s and Password=%s",
                         (email_txt.get(), paswd_txt.get()))
 # cur.execute("ALTER TABLE UserAccounts userID int PRIMARY KEY AUTO_INCREMENT ")
             row = cur.fetchone()  # fetches that user credentials in a single tuple
@@ -30,8 +30,8 @@ def login():
 
             else:
                 root.destroy()
-                import main
-
+            db.commit()
+            db.close()
         except Exception as e:
             messagebox.showerror("Error", f"Error Due to {e}")
 

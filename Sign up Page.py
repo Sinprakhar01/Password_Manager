@@ -38,14 +38,13 @@ def regs():
             db = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                passwd='45968060',
-                database="datm")
+                passwd='root',
+                database="Password_manager")
             cur = db.cursor()
-            cur.execute("INSERT INTO useraccounts (Email_id,password) VALUES(%s,%s)",(user_mail.get(), new_pswd.get()))
+            cur.execute("INSERT INTO Accounts(Username,Password) VALUES(%s,%s)",(user_mail.get(), new_pswd.get()))
             db.commit()
             db.close()
             root.destroy()
-
         except Exception as e:
             messagebox.showerror("Error", f"Error Due to {e}")
 reg_btn = Button(text='Sign UP', bg="tomato", bd=15, command=regs,font='bold')

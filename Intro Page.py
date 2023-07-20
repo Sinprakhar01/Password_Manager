@@ -1,11 +1,8 @@
 from tkinter import *
-
 root = Tk()
 root.geometry("1590x800+0+0")
 root.title("INTRO")
 root.config(bg="#ea5455")
-
-
 def lg_in():
     root.destroy()
 

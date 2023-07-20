@@ -32,8 +32,8 @@ def save():
                 db = mysql.connector.connect(
                     host='localhost',
                     user='root',
-                    passwd='45968060',
-                    database="datm")
+                    passwd='root',
+                    database="Password_manager")
                 cur = db.cursor()
                 cur.execute("INSERT INTO UserData (Website, Username, Password, Email_id) VALUES(%s, %s, %s, %s )",
                             (website, username, password, Email_id))
@@ -56,8 +56,8 @@ def update():
         db = mysql.connector.connect(
             host='localhost',
             user='root',
-            passwd='45968060',
-            database="datm")
+            passwd='root',
+            database="Password_manager")
         cur = db.cursor()
         cur.execute("UPDATE UserData SET Username=%s, Password=%s, Email_id=%s WHERE Website=%s",
                     (username, password, Email_id, website))
@@ -76,8 +76,8 @@ def delete():
         db = mysql.connector.connect(
             host='localhost',
             user='root',
-            passwd='45968060',
-            database="datm")
+            passwd='root',
+            database="Password_manager")
         cur = db.cursor()
         cur.execute("DELETE FROM UserData WHERE Website= %s",
                 (website,))
@@ -252,8 +252,8 @@ def fetch_data():
         db = mysql.connector.connect(
             host='localhost',
             user='root',
-            passwd='45968060',
-            database="datm")
+            passwd='root',
+            database="Password_manager")
         cur = db.cursor()
         cur.execute("SELECT * FROM UserData ")
         rows = cur.fetchall()
